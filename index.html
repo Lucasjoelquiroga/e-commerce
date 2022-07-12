@@ -1,53 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <header class="header">
-        <nav class="">
-            <ul class="list">
-                <li><a href="">qwd</a></li>
-                <li><a href="">qwd</a></li>
-            </ul>
-        </nav>
+    <title>Tienda</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/ccs/style.css">
+  </head>
+  <body>
+
+    <header class="cabezera">
+      <nav class="nav">
+        <span>logo</span>
+        <ul class="ul">
+          <li>Academlo</li>
+          <li>Tienda de Autos</li>
+        </ul>
+      </nav>
     </header>
-    <main class="main">
-        <section>
-            <!-- Sección en la que se dibujan los productos -->
-        </section>
-        <aside>
-            <!-- Sección en la que se dibujan los productos del carrito (los que se van a comprar) -->
-        </aside>
-    </main>
-    <footer>
+    <h1 class="titulo">Autos Disponibles</h1>
+
+
+    <div class="contenedor__principal">
+      <main class="contenedor__productos">
+        <h2>Productos:</h2>
         
-    </footer>
-    <!--
-        Este template contendrá el producto que será cargado con Js y dibujado en la sección izquierda de la pantalla.
+        <section id="items" class="productos"></section>
+      </main>
 
-        Modificar si es necesario.
-    -->    
-    <template>
-        <div class="product">
-            <!-- Nombre del producto -->
-            <div><h2></h2></div>
-            <!-- Imagen del producto -->
-            <div><img src="" alt=""></div>
-            <!-- Descripción del producto -->
-            <div><p></p></div>
-            <!-- Botones que realizarán las acciones (Under construction xd) -->
-            <div>
+      <asside class="contenedor__carrito">
+        <h2>Carrito:</h2>
+        <div id="articulosContenedor" class="articulos"></div>
+      </asside>
+    </div>
 
-            </div>
+    <template id="template-footer">
+      <th scope="row" colspan="2">Total productos</th>
+      <td>10</td>
+      <td>
+          <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+              vaciar todo
+          </button>
+      </td>
+      <td class="font-weight-bold">$ <span>5000</span></td>
+  </template>
+
+    <template id="template-carrito">
+      <tr>
+        <th scope="row">id</th>
+        <td>Café</td>
+        <td>1</td>
+        <td>
+            <button class="btn btn-info btn-sm">
+                +
+            </button>
+            <button class="btn btn-danger btn-sm">
+                -
+            </button>
+        </td>
+        <td>$ <span>500</span></td>
+      </tr>
+    </template>
+    
+    <template id="template-card">
+      <div class="col-12 mb-2 col-md-4">
+        <div class="card">
+          <img src="" alt="" class="img-card-top">
+          <div class="card-body">
+            <h5>Titulo</h5>
+            <p>precio</p>
+            <button class="btn btn-dark">Comprar</button>
+          </div>
         </div>
+      </div>
     </template>
 
-    <!-- Añadir otro template con el diseño de un item en la lista de compra del carrito -->
-    <script src="/assets/js/main.js" type="module"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>

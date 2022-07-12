@@ -1,67 +1,33 @@
-/* Esta base de datos contiene los elementos a vender */
-import products from './database.js';
 
-/* Elementos */
-let main = document.querySelector('.main');
-let section4products = main.childNodes[1];
-let section4cart = main.childNodes[3];
-let productTemplate = document.getElementsByTagName('template')[0].content;
+const items = document.getElementById('items')
+const templateCard = document.getElementById('template-card').content
 
-/* El array dónde se contendrán los elementos que se comprarán */
-let cart = []; 
+/* Removida función nombrada innecesaria */
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const data = await fetch('/assets/js/api.json').then(r => r.json());
+        pintarCards(data)
+    } catch (error){
+        console.log(error)
+    }
+});
 
-/* products functions */
-products.getElement = function(i)
-{
-    if(i < 0 || i >= products.length)
-        return null;
-    
-    let product =  products[i];
-    let template = productTemplate.cloneNode(true);
-    
-    let h2 = template.querySelector('h2');
-    let img = template.querySelector('img');
-    let p = template.querySelector('p');
-    
-    h2.innerText = product.name;
-    img.src = product.url;
-    p.innerText = product.description;
+/* No es necesaria una función flecha en este contexto */
+function pintarCards(data) {
+    /* Se debe resetear el contenido del contenedor antes de dibujar las tarjetas */
+    items.innerHTML = ''
 
-    return template;
-};
+    /* Un nuevo fragmento vacío debe ser creado para contener las tarjetas */
+    let fragment = document.createDocumentFragment()
+    data.forEach(producto => {
+        /* El elemento debe ser clonado primero y después modificado */
+        let card = templateCard.cloneNode(true)
+        card.querySelector('h5').textContent = producto.title
+        card.querySelector('p').textContent = producto.precio
+        card.querySelector('img').setAttribute('src',producto.thumbnailUrl)
+        fragment.appendChild(card)
+    });
 
-/* Inserta un producto en un container */
-products.appendTo = function(i, element)
-{
-    if(i < 0 || i >= this.length)
-        return;
-
-    element.appendChild(products.getElement(i));
-};
-
-/* Inserta todos los productos en un container */
-products.drawAll = function(container)
-{
-    products.forEach((_, i) => products.appendTo(i, container));
-};
-
-/* Función genérica para dibujar todos los productos en el section */
-function drawProducts(container)
-{
-    container.innerHTML = '';
-    products.drawAll(container);
+    items.appendChild(fragment)
 }
 
-function drawCart(container)
-{
-
-}
-
-/* Utilizado para dibujar tanto los productos cómo los enlistados */
-function drawBoth()
-{
-    drawProducts(section4products);
-    drawCart(section4cart);
-}
-
-drawBoth();
