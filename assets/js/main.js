@@ -1,3 +1,4 @@
+
 const items = document.getElementById('items')
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
@@ -31,3 +32,4 @@ const pintarCards = data  => {
    });
    items.appendChild(fragment)
 }
+
