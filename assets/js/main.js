@@ -41,13 +41,14 @@ function pintarCards(data) {
         card.querySelector('h5').textContent = producto.title
         card.querySelector('p').textContent = producto.precio
         card.querySelector('img').setAttribute('src',producto.thumbnailUrl)
-       
+       //seleciiono el boton, para llamar al id de forma dinamica
+       templateCard.querySelector('.btn-dark').dataset.id = producto.id 
         fragment.appendChild(card)
     });
 
     cards.appendChild(fragment)
 }
-// capturo los elementos de la card CON CLASE BTNDARK .
+//car capturo los elementos de la card CON CLASE BTNDARK .
 const addCarrito = e => {
     if (e.target.classList.contains('btn-dark')) {
 
@@ -94,7 +95,7 @@ const pintarCarrito = () => {
     items.appendChild(fragment)
 
     pintarFooter()
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    
 }
 const pintarFooter = () => {
     footer.innerHTML = ''
