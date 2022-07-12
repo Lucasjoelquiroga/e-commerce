@@ -1,17 +1,23 @@
 
+//coleccion de objetos
+//se accede a lis id y se los guarda en una variable.
 const cards = document.getElementById('cards')
 const items = document.getElementById('items')
 const footer = document.getElementById('footer')
-
+// se accede a los template y se los guarda en una variable.importate los content para acceder a los elementos
 const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
+//para recorrer elementos y pintarlos en el sitio web se recomienda usar fragmen, si es solo un elemento tambien se puede usar innerhtml.
 const fragment = document.createDocumentFragment()
 //creo el objeto para agregar la informacion al carrito.
 let carrito = {}
 
 
+// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
 /* Removida función nombrada innecesaria */
+//// Traer productos de la api.jason con el fech y capturar los datos.
+//try,hace una peticion, especifica una respuesta.cath pinta el error en consola.
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const data = await fetch('/assets/js/api.json').then(r => r.json());
@@ -20,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(error)
     }
 });
+//// Eventos
 cards.addEventListener('click', e => {
     addCarrito(e)
 })
@@ -27,28 +34,24 @@ cards.addEventListener('click', e => {
 items.addEventListener('click', e => {
     btnAccion(e)
 })
-
-/* No es necesaria una función flecha en este contexto */
-function pintarCards(data) {
-    /* Se debe resetear el contenido del contenedor antes de dibujar las tarjetas */
-    cards.innerHTML = ''
-
-    /* Un nuevo fragmento vacío debe ser creado para contener las tarjetas */
-    let fragment = document.createDocumentFragment()
+//pintar productos recorriendolos.los clono y los modifico.
+const pintarCards = data  => {
     data.forEach(producto => {
-        /* El elemento debe ser clonado primero y después modificado */
-        let card = templateCard.cloneNode(true)
-        card.querySelector('h5').textContent = producto.title
-        card.querySelector('p').textContent = producto.precio
-        card.querySelector('img').setAttribute('src',producto.thumbnailUrl)
-       //seleciiono el boton, para llamar al id de forma dinamica
-       templateCard.querySelector('.btn-dark').dataset.id = producto.id 
-        fragment.appendChild(card)
+        templateCard.querySelector('h5').textContent = producto.title
+        templateCard.querySelector('p').textContent = producto.precio
+        templateCard.querySelector('img').setAttribute('src', producto.thumbnailUrl)
+        //seleciiono el boton, para llamar al id de forma dinamica
+        templateCard.querySelector('.btn-dark').dataset.id = producto.id 
+        const clone = templateCard.cloneNode(true)
+        fragment.appendChild(clone)
+ 
+    
     });
+
 
     cards.appendChild(fragment)
 }
-//car capturo los elementos de la card CON CLASE BTNDARK .
+// Agregar al carrito, capturo los elementos de la card CON CLASE BTNDARK .
 const addCarrito = e => {
     if (e.target.classList.contains('btn-dark')) {
 
@@ -58,7 +61,7 @@ const addCarrito = e => {
     //creo para evitar la prpagacion de eventos.
     e.stopPropagation()
 }
-
+//captura los elementos de addcarrito.
 const setCarrito = objeto => {
     //console.log(objeto)
     const producto = {
@@ -68,7 +71,7 @@ const setCarrito = objeto => {
         
         cantidad: 1
     }
-
+//aumentamos la cantidad
     if (carrito.hasOwnProperty(producto.id)) {
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
@@ -76,6 +79,7 @@ const setCarrito = objeto => {
 
     pintarCarrito()
 }
+
 const pintarCarrito = () => {
     // console.log(carrito)
     items.innerHTML = ''
