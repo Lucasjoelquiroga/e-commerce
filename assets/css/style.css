@@ -9,9 +9,7 @@
 
 /******************* NAV ****************************/
 
-.navbar{
-  padding: 0 7%;
-}
+
 
 .container-fluid{
   padding: 20px;
@@ -22,21 +20,21 @@
 }
 
 .navbar-collapse{
+  display: flex;
   justify-content: center;
 }
+
 
 .navbar-nav li {
   margin: 0 10px;
   border-radius: 10px;
 }
 
-.navbar-nav li a {
-  
-  font-weight: bold;
-}
+
 
 .navbar-nav li a:hover {
   font-size: 18px;
+  font-weight: bold;
   transition: all .5s;
 }
 
@@ -101,10 +99,38 @@ h1{
 
 
 /************************** MEDIAS *************************************/
+@media (max-width: 991px) {
+
+  .container-fluid{
+    padding: 10px 12%;
+  }
+
+  .navbar-collapse{
+    margin-top: 25px;
+    
+  }
+
+  .navbar-collapse{
+    display: inline-block;
+    
+  }
+
+ 
+  
+
+}
+
 @media (min-width: 768px) {
   .contenedor__principal {
     grid-template-columns: 2fr 1fr;
     
   }
+ 
+
+
+  
+
+ 
 
 }
+
