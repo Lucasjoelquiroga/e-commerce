@@ -25,6 +25,20 @@
   justify-content: center;
 }
 
+.navbar-nav li {
+  margin: 0 10px;
+  border-radius: 10px;
+}
+
+.navbar-nav li a {
+  
+  font-weight: bold;
+}
+
+.navbar-nav li a:hover {
+  font-size: 18px;
+  transition: all .5s;
+}
 
 
 
@@ -76,6 +90,7 @@ h1{
 
 .card {
   width: 150px;
+  height: 300px;
 }
 
 .card img {
@@ -89,6 +104,7 @@ h1{
 @media (min-width: 768px) {
   .contenedor__principal {
     grid-template-columns: 2fr 1fr;
+    
   }
 
 }
