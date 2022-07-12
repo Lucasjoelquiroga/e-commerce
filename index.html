@@ -56,12 +56,36 @@
       <main class="contenedor__productos">
         <h2>Productos:</h2>
         
-        <section id="items" class="productos"></section>
+        <section id="cards" class="productos"></section>
       </main>
 
       <asside class="contenedor__carrito">
         <h2><span><i class='bx bxs-store'></i></span> Carrito</h2>
-        <div id="articulosContenedor" class="articulos"></div>
+        <div id="articulosContenedor" class="articulos">
+          <div class="container">
+            <h4>Carrito de compras</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Acción</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody id="items"></tbody>
+              <tfoot>
+                <tr id="footer">
+                  <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                </tr>
+              </tfoot>
+            </table>
+            
+            
+          </div>
+
+        </div>
       </asside>
     </div>
 
