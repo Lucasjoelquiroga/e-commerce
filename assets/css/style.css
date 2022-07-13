@@ -94,13 +94,25 @@ h1{
 /************************** CARD********************/
 
 .card {
-  width: 150px;
-  height: 300px;
+  margin: 30px;
+  width: 220px;
+  height: 320px;
+}
+.card:hover{
+  box-shadow: 5px 5px 5px 3px rgb(213, 213, 213);
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card img {
   width: auto;
   height: 120px;
+  
 
 }
 
