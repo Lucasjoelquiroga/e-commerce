@@ -1,33 +1,41 @@
 
-const items = document.getElementById('items')
-const templateCard = document.getElementById('template-card').content
+/*
+    Alexander:
+    Los nombres de las variables deben ser descriptivos,
+    tanto en español como en inglés
+*/
+const productsContainer = document.getElementById('items') // Alexander: Por qué el nombre de clase es "items" y no "products-container" o algo así?
+const productCardTemplate = document.getElementById('template-card').content
 
-/* Removida función nombrada innecesaria */
+/* Nuevas variables */
+const articlesContainer = document.getElementById('articulosContenedor'); // Alexander: Por qué este nombre de este id está en CammelCase y el resto separado por guiones?
+const articlesItemTemplate = document.getElementById(''); // Alexander: No existe ningún template para los articulos enlistados
+
+/* Alexander: Removida función nombrada innecesaria */
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const data = await fetch('/assets/js/api.json').then(r => r.json());
-        pintarCards(data)
+        const products = await fetch('/assets/js/api.json').then(r => r.json());
+        drawProducts(products)
     } catch (error){
         console.log(error)
     }
 });
 
-/* No es necesaria una función flecha en este contexto */
-function pintarCards(data) {
-    /* Se debe resetear el contenido del contenedor antes de dibujar las tarjetas */
-    items.innerHTML = ''
+/* Alexander: No es necesaria una función flecha en este contexto */
+/* Alexander: Cambié el nombre porque "pintarCards" tiene inglés y español al mismo tiempo xd */
+function drawProducts(products) {
+    /* Alexander: Se debe resetear el contenido del contenedor antes de dibujar las tarjetas */
+    productsContainer.innerHTML = ''
 
-    /* Un nuevo fragmento vacío debe ser creado para contener las tarjetas */
-    let fragment = document.createDocumentFragment()
-    data.forEach(producto => {
-        /* El elemento debe ser clonado primero y después modificado */
-        let card = templateCard.cloneNode(true)
-        card.querySelector('h5').textContent = producto.title
-        card.querySelector('p').textContent = producto.precio
-        card.querySelector('img').setAttribute('src',producto.thumbnailUrl)
-        fragment.appendChild(card)
+    products.forEach(producto => {
+        /* Alexander:El elemento debe ser clonado primero y después modificado */
+        let productCard = productCardTemplate.cloneNode(true)
+        productCard.querySelector('h5').textContent = producto.title
+        productCard.querySelector('p').textContent = producto.precio
+        productCard.querySelector('img').setAttribute('src',producto.thumbnailUrl)
+
+        /* Alexander: Se añade el nuevo 'card' directamente, no es necesario ningún fragmento */
+        productsContainer.appendChild(productCard)
     });
-
-    items.appendChild(fragment)
 }
 
