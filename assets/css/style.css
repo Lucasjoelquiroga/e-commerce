@@ -4,10 +4,47 @@
     background-color: rgb(241, 231, 231);
   }
 
-.nav {
-  display: flex;
+
+
+
+/******************* NAV ****************************/
+
+
+
+.container-fluid{
+  padding: 20px;
+  
+}
+.container-fluid img {
+  height:40px;
 }
 
+.navbar-collapse{
+  display: flex;
+  justify-content: center;
+}
+
+
+.navbar-nav li {
+  margin: 0 10px;
+  border-radius: 10px;
+}
+
+
+
+.navbar-nav li a:hover {
+  font-size: 18px;
+  font-weight: bold;
+  transition: all .5s;
+}
+
+
+
+
+
+
+
+/******************** BODY ****************************/
 .contenedor__principal {
   max-width: 1040px;
   margin: 0 auto;
@@ -39,8 +76,61 @@
   padding: 20px;
 }
 
+h1{
+  margin: 40px;
+  margin-left: 30px;
+
+}
+/********************* PRODUCTS****************************/
+
+
+/************************** CARD********************/
+
+.card {
+  width: 150px;
+  height: 300px;
+}
+
+.card img {
+  width: auto;
+  height: 120px;
+
+}
+
+
+/************************** MEDIAS *************************************/
+@media (max-width: 991px) {
+
+  .container-fluid{
+    padding: 10px 12%;
+  }
+
+  .navbar-collapse{
+    margin-top: 25px;
+    
+  }
+
+  .navbar-collapse{
+    display: inline-block;
+    
+  }
+
+ 
+  
+
+}
+
 @media (min-width: 768px) {
   .contenedor__principal {
     grid-template-columns: 2fr 1fr;
+    
   }
+ 
+
+
+  
+
+ 
+
 }
+
