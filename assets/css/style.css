@@ -7,8 +7,12 @@
   scroll-behavior: smooth;
 }
 
+.contenedor__principal{
+  max-width: 1040px;
+}
+
 .cabezera {
-    max-width: 1040px;
+    /* max-width: 1040px; */
     margin: 0 auto;
     background-color: rgb(241, 231, 231);
   }
@@ -20,6 +24,7 @@
   
 }
 .container-fluid img {
+  margin-left: 10%;
   height:40px;
 }
 
