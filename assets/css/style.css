@@ -1,21 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+.contenedor__principal{
+  max-width: 1040px;
+}
+
 .cabezera {
-    max-width: 1040px;
+    /* max-width: 1040px; */
     margin: 0 auto;
     background-color: rgb(241, 231, 231);
   }
 
-
-
-
 /******************* NAV ****************************/
-
-
 
 .container-fluid{
   padding: 20px;
   
 }
 .container-fluid img {
+  margin-left: 10%;
   height:40px;
 }
 
@@ -29,8 +38,6 @@
   margin: 0 10px;
   border-radius: 10px;
 }
-
-
 
 .navbar-nav li a:hover {
   font-size: 18px;
@@ -87,14 +94,33 @@ h1{
 /************************** CARD********************/
 
 .card {
-  width: 150px;
-  height: 300px;
+  margin: 30px;
+  width: 220px;
+  height: 320px;
+}
+.card:hover{
+  box-shadow: 5px 5px 5px 3px rgb(213, 213, 213);
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card img {
   width: auto;
   height: 120px;
+  
 
+}
+
+/************************** FOOTER ********************/
+
+.logo-academlo-footer{
+  height: auto;
+  width: 100px;
 }
 
 
