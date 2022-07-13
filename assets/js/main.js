@@ -14,7 +14,7 @@ const templateCarrito = document.getElementById('template-carrito').content
 let carrito = {}
 
 //pintar productos recorriendolos.los clono y los modifico.
-const pintarCards = data  => {
+function pintarCards(data) {
     data.forEach(producto => {
         const clone = templateCard.cloneNode(true)
         clone.querySelector('h5').textContent = producto.title
@@ -24,22 +24,19 @@ const pintarCards = data  => {
         clone.querySelector('.btn-dark').dataset.id = producto.id /* Nice trick */
         cards.appendChild(clone)
     });
-
-
-    
 }
+
 // Agregar al carrito, capturo los elementos de la card CON CLASE BTNDARK .
-const addCarrito = e => {
+function addCarrito(e) {
     if (e.target.classList.contains('btn-dark')) {
-
        setCarrito(e.target.parentElement) 
-
     }
     //creo para evitar la prpagacion de eventos.
     e.stopPropagation()
 }
+
 //captura los elementos de addcarrito.
-const setCarrito = objeto => {
+function setCarrito(objeto) {
     //console.log(objeto)
     const producto = {
         id: objeto.querySelector('.btn-dark').dataset.id,
@@ -48,7 +45,7 @@ const setCarrito = objeto => {
         
         cantidad: 1
     }
-//aumentamos la cantidad
+    //aumentamos la cantidad
     if (carrito.hasOwnProperty(producto.id)) {
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
@@ -57,8 +54,7 @@ const setCarrito = objeto => {
     pintarCarrito()
 }
 
-const pintarCarrito = () => {
-    // console.log(carrito)
+function pintarCarrito() {
     items.innerHTML = ''
 
     Object.values(carrito).forEach(producto => {
@@ -68,17 +64,15 @@ const pintarCarrito = () => {
         clone.querySelectorAll('td')[1].textContent = producto.cantidad
         clone.querySelector('span').textContent = producto.cantidad * producto.precio
        
-
         clone.querySelector('.btn-info').dataset.id = producto.id
         clone.querySelector('.btn-danger').dataset.id = producto.id 
         
         items.appendChild(clone)
     })
     
-
     pintarFooter()
 }
-const pintarFooter = () => {
+function pintarFooter() {
     footer.innerHTML = ''
     
     if (Object.keys(carrito).length === 0) {
@@ -92,6 +86,7 @@ const pintarFooter = () => {
     const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
 
     const clone = templateFooter.cloneNode(true)
+
     clone.querySelectorAll('td')[0].textContent = nCantidad
     clone.querySelector('span').textContent = nPrecio
 
@@ -102,9 +97,9 @@ const pintarFooter = () => {
         carrito = {}
         pintarCarrito()
     })
-
 }
-const btnAccion = e => {
+
+function btnAccion(e) {
     // console.log(e.target.classList.contains('btn-info'))
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
@@ -123,6 +118,7 @@ const btnAccion = e => {
         }
         pintarCarrito()
     }
+
     e.stopPropagation()
 }
 
