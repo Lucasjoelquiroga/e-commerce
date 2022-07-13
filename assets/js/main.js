@@ -9,47 +9,24 @@ const templateCard = document.getElementById('template-card').content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 //para recorrer elementos y pintarlos en el sitio web se recomienda usar fragmen, si es solo un elemento tambien se puede usar innerhtml.
-const fragment = document.createDocumentFragment()
+// const fragment = document.createDocumentFragment() /* Alexander: No es necesario usar fragmentos en este código */
 //creo el objeto para agregar la informacion al carrito.
 let carrito = {}
 
-
-// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
-/* Removida función nombrada innecesaria */
-//// Traer productos de la api.jason con el fech y capturar los datos.
-//try,hace una peticion, especifica una respuesta.cath pinta el error en consola.
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const data = await fetch('/assets/js/api.json').then(r => r.json());
-        pintarCards(data)
-    } catch (error){
-        console.log(error)
-    }
-});
-//// Eventos
-cards.addEventListener('click', e => {
-    addCarrito(e)
-})
-
-items.addEventListener('click', e => {
-    btnAccion(e)
-})
 //pintar productos recorriendolos.los clono y los modifico.
 const pintarCards = data  => {
     data.forEach(producto => {
-        templateCard.querySelector('h5').textContent = producto.title
-        templateCard.querySelector('p').textContent = producto.precio
-        templateCard.querySelector('img').setAttribute('src', producto.thumbnailUrl)
-        //seleciiono el boton, para llamar al id de forma dinamica
-        templateCard.querySelector('.btn-dark').dataset.id = producto.id 
         const clone = templateCard.cloneNode(true)
-        fragment.appendChild(clone)
- 
-    
+        clone.querySelector('h5').textContent = producto.title
+        clone.querySelector('p').textContent = producto.precio
+        clone.querySelector('img').setAttribute('src', producto.thumbnailUrl)
+        //seleciiono el boton, para llamar al id de forma dinamica
+        clone.querySelector('.btn-dark').dataset.id = producto.id /* Nice trick */
+        cards.appendChild(clone)
     });
 
 
-    cards.appendChild(fragment)
+    
 }
 // Agregar al carrito, capturo los elementos de la card CON CLASE BTNDARK .
 const addCarrito = e => {
@@ -85,21 +62,21 @@ const pintarCarrito = () => {
     items.innerHTML = ''
 
     Object.values(carrito).forEach(producto => {
-        templateCarrito.querySelector('th').textContent = producto.id
-        templateCarrito.querySelectorAll('td')[0].textContent = producto.title
-        templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
+        const clone = templateCarrito.cloneNode(true)
+        clone.querySelector('th').textContent = producto.id
+        clone.querySelectorAll('td')[0].textContent = producto.title
+        clone.querySelectorAll('td')[1].textContent = producto.cantidad
+        clone.querySelector('span').textContent = producto.cantidad * producto.precio
        
 
-        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
-        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id 
-        const clone = templateCarrito.cloneNode(true)
-        fragment.appendChild(clone)
+        clone.querySelector('.btn-info').dataset.id = producto.id
+        clone.querySelector('.btn-danger').dataset.id = producto.id 
+        
+        items.appendChild(clone)
     })
-    items.appendChild(fragment)
+    
 
     pintarFooter()
-    
 }
 const pintarFooter = () => {
     footer.innerHTML = ''
@@ -113,15 +90,12 @@ const pintarFooter = () => {
     // sumar cantidad y sumar totales
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
     const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-    // console.log(nPrecio)
-
-    templateFooter.querySelectorAll('td')[0].textContent = nCantidad
-    templateFooter.querySelector('span').textContent = nPrecio
 
     const clone = templateFooter.cloneNode(true)
-    fragment.appendChild(clone)
+    clone.querySelectorAll('td')[0].textContent = nCantidad
+    clone.querySelector('span').textContent = nPrecio
 
-    footer.appendChild(fragment)
+    footer.appendChild(clone)
 
     const botonVaciar = document.querySelector('#vaciar-carrito')
     botonVaciar.addEventListener('click', () => {
@@ -152,4 +126,19 @@ const btnAccion = e => {
     e.stopPropagation()
 }
 
+// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
+/* Removida función nombrada innecesaria */
+//// Traer productos de la api.jason con el fech y capturar los datos.
+//try,hace una peticion, especifica una respuesta.cath pinta el error en consola.
+/* Eventos */
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const data = await fetch('/assets/js/api.json').then(r => r.json());
+        pintarCards(data)
+    } catch (error){
+        console.log(error)
+    }
+});
 
+cards.addEventListener('click', addCarrito)
+items.addEventListener('click', btnAccion)
