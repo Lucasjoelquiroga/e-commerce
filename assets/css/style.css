@@ -131,6 +131,7 @@ h1{
 
 }
 
+
 /************************** FOOTER ********************/
 
 .logo-academlo-footer{
@@ -139,8 +140,20 @@ h1{
 }
 
 
+
+
 /************************** MEDIAS *************************************/
 @media (max-width: 991px) {
+
+  .titulo{
+    margin-left: 4%;
+    font-size: 25px;
+  }
+
+  .contenedor__productos h2{
+    font-size: 20px;
+    margin-left: 5%;
+  }
 
   .container-fluid{
     padding: 10px 12%;
@@ -156,6 +169,12 @@ h1{
     
   }
 
+  .contenedor__carrito h2{
+    margin-left: 5%;
+    margin-bottom: 30px;
+  }
+
+ 
  
   
 
@@ -166,6 +185,8 @@ h1{
     grid-template-columns: 2fr 1fr;
     
   }
+
+  
  
 
 
