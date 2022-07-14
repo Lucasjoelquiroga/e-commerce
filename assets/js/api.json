@@ -37,27 +37,27 @@
     },
     {
       "precio": 39.350,
-      "id": 6,
+      "id": 7,
       "title": "Toyota Fortuner",
       "thumbnailUrl": "/assets/img/Cars/FORTUNER.png"
     },
     {
       "precio": 32.590,
-      "id": 6,
+      "id": 8,
       "title": "Toyota Hiace",
       "thumbnailUrl": "/assets/img/Cars/hiace.png"
     },
     {
       "precio": 26.570,
-      "id": 6,
+      "id": 9,
       "title": "Toyota Hilux",
-      "thumbnailUrl": "/assets/img/Cars/ETIOS.png"
+      "thumbnailUrl": "/assets/img/Cars/HILUX.png"
     },
     {
       "precio": 54.700,
-      "id": 6,
+      "id": 10,
       "title": "Toyota Land Cruiser Prado",
-      "thumbnailUrl": "/assets/img/Cars/ETIOS.png"
+      "thumbnailUrl": "/assets/img/Cars/prado.png"
     }
   ]
 
