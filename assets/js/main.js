@@ -62,7 +62,7 @@ function pintarCarrito() {
         clone.querySelector('th').textContent = producto.id
         clone.querySelectorAll('td')[0].textContent = producto.title
         clone.querySelectorAll('td')[1].textContent = producto.cantidad
-        clone.querySelector('span').textContent = producto.cantidad * producto.precio
+        clone.querySelector('span').textContent = (producto.cantidad * producto.precio).toFixed(2)
        
         clone.querySelector('.btn-info').dataset.id = producto.id
         clone.querySelector('.btn-danger').dataset.id = producto.id 
@@ -82,13 +82,14 @@ function pintarFooter() {
         return
     }
     // sumar cantidad y sumar totales
-    const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
+    const nCantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad, 0)
     const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
 
     const clone = templateFooter.cloneNode(true)
+    
 
-    clone.querySelectorAll('td')[0].textContent = nCantidad
-    clone.querySelector('span').textContent = nPrecio
+    clone.querySelectorAll('td')[0].textContent = nCantidad.toFixed()
+    clone.querySelector('span').textContent = nPrecio.toFixed(2)
 
     footer.appendChild(clone)
 
