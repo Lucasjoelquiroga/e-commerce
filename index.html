@@ -49,19 +49,16 @@
         </div>
       </nav>
     </header>
-    <h1 class="titulo"><span><i class='bx bxs-car'></i></span> Autos Disponibles</h1>
-    <div class="contenedor__principal">
-      <main class="contenedor__productos">
-<<<<<<< HEAD
-        <h2> Productos:</h2>
-=======
-        
+    
+    <main class="contenedor__productos">
+      <header>
+        <h1 class="titulo"><span><i class='bx bxs-car'></i></span> Autos Disponibles</h1>
         <h2> Productos Disponibles:</h2>
-        
->>>>>>> baf2577450aa1b4d2ae2fd4f3eb19155f798a17c
-        <section id="cards" class="productos"></section>
-      </main>
-      <asside class="contenedor__carrito">
+      </header>
+      <section id="cards" class="productos"></section>
+    </main>
+
+      <aside class="contenedor__carrito">
         <h2><span><i class='bx bxs-store'></i></span> Carrito</h2>
         <div id="articulosContenedor" class="articulos">
           <div class="container">
@@ -85,8 +82,8 @@
             </table>
           </div>
         </div>
-      </asside>
-    </div>
+      </aside>
+
     <!--los template no los lee el html asi que pueden estar en cualquier lugar del documento-->
     <template id="template-footer">
       <th scope="row" colspan="2">Total productos</th>
@@ -122,7 +119,7 @@
       </tr>
     </template>
     <template id="template-card">
-      <div class="col-12 mb-2 col-md-4">
+      <div class="">
         <div class="card">
           <img src="" alt="" class="img-card-top">
           <div class="card-body">
