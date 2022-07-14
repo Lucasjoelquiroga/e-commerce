@@ -101,7 +101,10 @@ h1{
 
 /********************* Contenedor Carrito****************************/
 
-
+.contenedor__carrito h2{
+  margin-left: 5%;
+  margin-bottom: 50px;
+}
 
 /************************** CARD********************/
 
