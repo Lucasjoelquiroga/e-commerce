@@ -189,7 +189,6 @@ h1{
 @media (min-width: 768px) {
   .contenedor__principal {
     grid-template-columns: 2fr 1fr;
-    
   }
 
 
