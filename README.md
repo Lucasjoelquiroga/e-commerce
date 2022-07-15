@@ -4,7 +4,7 @@ Participantes:
 
 * Jesus Arachider (https://github.com/chocopros)
 * Wilhelm Janampa (https://github.com/wilhelmXX16)
-* José Enrique Cueche ()
+* José Enrique Cueche (https://github.com/Cueche)
 * Juan David Garzon Robelto (https://github.com/DavidGR2000)
 * Jerry Pacheco (https://github.com/jerry0811)
 * Alejandro José Aguilar Aldana (https://github.com/Alex7vzla)
