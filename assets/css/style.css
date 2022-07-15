@@ -45,9 +45,9 @@
   transition: all .5s;
 }
 
-
-
-
+.cantidad-content::before {
+  content: 'Cantidad';
+}
 
 
 
@@ -142,6 +142,10 @@ h1{
   width: 100px;
 }
 
+#articulosContenedor th {
+  font-size: 12px;
+}
+
 
 
 
@@ -177,7 +181,9 @@ h1{
     margin-bottom: 30px;
   }
 
- 
+  .cantidad-content::before {
+    content: 'Nº';
+  }
  
   
 
@@ -186,11 +192,7 @@ h1{
 @media (min-width: 768px) {
   .contenedor__principal {
     grid-template-columns: 2fr 1fr;
-    
   }
-
-  
- 
 
 
   
