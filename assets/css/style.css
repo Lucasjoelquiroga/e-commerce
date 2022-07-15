@@ -112,6 +112,7 @@ h1{
   margin: 30px;
   width: 220px;
   height: 320px;
+  text-align: center;
 }
 .card:hover{
   box-shadow: 5px 5px 5px 3px rgb(213, 213, 213);
@@ -123,7 +124,9 @@ h1{
   justify-content: center;
   align-items: center;
 }
-
+.car-body p {
+  font-size: 10px;
+}
 .card img {
   width: auto;
   height: 120px;
