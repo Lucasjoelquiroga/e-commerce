@@ -1,39 +1,63 @@
 [
     {
-      "precio": 500.000,
+      "precio": 57.750,
       "id": 1,
-      "title": "Auto amarillo",
-      "thumbnailUrl": "/assets/img/amarillopexels-jae-park-3954426.jpg"
+      "title": "Toyota 4Runner",
+      "thumbnailUrl": "/assets/img/Cars/camioneta-4Runner-Toyota-4x4.png"
     },
     {
-      "precio": 300.000,
+      "precio": 11.265,
       "id": 2,
-      "title": "Auto azul",
-      "thumbnailUrl": "/assets/img/azulpexels-mike-b-5759865.jpg"
+      "title": "Toyota Agya",
+      "thumbnailUrl": "/assets/img/Cars/AGYA.png"
     },
     {
-      "precio": 100.000,
+      "precio": 18.490,
       "id": 3,
-      "title": "Auto dorado",
-      "thumbnailUrl": "/assets/img/doradopexels-mike-b-6060938.jpg"
+      "title": "Toyota Avanza",
+      "thumbnailUrl": "/assets/img/Cars/Avanza_Miniatura (1).png"
     },
     {
-      "precio": 50.000,
+      "precio": 22.530,
       "id": 4,
-      "title": "Auto rojo",
-      "thumbnailUrl": "/assets/img/rojopexels-pixabay-35964.jpg"
+      "title": "Toyota Corolla",
+      "thumbnailUrl": "/assets/img/Cars/COROLLA-SD.PNG"
     },
     {
-      "precio": 120.000,
+      "precio": 24.990,
       "id": 5,
-      "title": "Auto negro",
-      "thumbnailUrl": "/assets/img/negropexels-xandar-5134315.jpg"
+      "title": "Toyota Corolla Cross",
+      "thumbnailUrl": "/assets/img/Cars/nueva-camioneta-hibrida-corolla-cross.png"
     },
     {
-      "precio": 150.000,
+      "precio": 14.550,
       "id": 6,
-      "title": "Auto verde",
-      "thumbnailUrl": "/assets/img/verdepexels-jae-park-3954418.jpg"
+      "title": "Toyota Etios",
+      "thumbnailUrl": "/assets/img/Cars/ETIOS.png"
+    },
+    {
+      "precio": 39.350,
+      "id": 7,
+      "title": "Toyota Fortuner",
+      "thumbnailUrl": "/assets/img/Cars/FORTUNER.png"
+    },
+    {
+      "precio": 32.590,
+      "id": 8,
+      "title": "Toyota Hiace",
+      "thumbnailUrl": "/assets/img/Cars/hiace.png"
+    },
+    {
+      "precio": 26.570,
+      "id": 9,
+      "title": "Toyota Hilux",
+      "thumbnailUrl": "/assets/img/Cars/HILUX.png"
+    },
+    {
+      "precio": 54.700,
+      "id": 10,
+      "title": "Toyota Land Cruiser Prado",
+      "thumbnailUrl": "/assets/img/Cars/prado.png"
     }
   ]
 
