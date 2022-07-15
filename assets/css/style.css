@@ -45,7 +45,21 @@
   transition: all .5s;
 }
 
+/*cambio de Willy*/
 
+.comp1:hover{
+-moz-animation: 1s flash 1;
+
+}
+
+@-moz-keyframes flash{
+  0%, 50%, 100%{
+    opacity: 1;
+  }
+  25%, 75%{
+    opacity: 0;
+  }
+}
 
 
 
@@ -112,9 +126,7 @@ h1{
 .card img {
   width: auto;
   height: 120px;
-  
-
-}
+  }
 
 /************************** FOOTER ********************/
 
